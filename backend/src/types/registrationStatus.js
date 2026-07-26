@@ -1,0 +1,7 @@
+export const REGISTRATION_STATUS = Object.freeze({
+  PAYMENT_PENDING: "PAYMENT_PENDING",
+
+  APPROVED: "APPROVED",
+
+  REJECTED: "REJECTED",
+});
