@@ -1,17 +1,73 @@
 import { Router } from "express";
 
+import { AuthController } from "../controllers/index.js";
+
+import {auth} from "../middlewares/index.js";
+
+import {validate} from "../middlewares/index.js";
+
+import {
+
+    loginSchema,
+
+    changePasswordSchema,
+
+} from "../validators/index.js";
+
 const router = Router();
 
-/*
+/**
+ * -------------------------------------------------------
+ * Public Routes
+ * -------------------------------------------------------
+ */
 
-POST /login
+router.post(
 
-POST /logout
+    "/login",
 
-GET /me
+    validate(loginSchema),
 
-PATCH /change-password
+    AuthController.login
 
-*/
+);
+
+/**
+ * -------------------------------------------------------
+ * Protected Routes
+ * -------------------------------------------------------
+ */
+
+router.post(
+
+    "/logout",
+
+    auth,
+
+    AuthController.logout
+
+);
+
+router.get(
+
+    "/me",
+
+    auth,
+
+    AuthController.me
+
+);
+
+router.patch(
+
+    "/change-password",
+
+    auth,
+
+    validate(changePasswordSchema),
+
+    AuthController.changePassword
+
+);
 
 export default router;
