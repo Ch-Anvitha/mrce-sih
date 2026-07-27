@@ -1,0 +1,15 @@
+{
+  "name": "Internal SIH 2026 - MRCE",
+  "short_name": "MRCE SIH",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8FAFC",
+  "theme_color": "#0B1F4D",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
