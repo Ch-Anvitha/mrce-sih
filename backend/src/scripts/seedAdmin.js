@@ -21,7 +21,7 @@ const seedAdmin = async () => {
 
         const existingAdmin = await Admin.findOne({
 
-            email: "admin@mrce.edu.in",
+            email: "rahulreddy@gmail.com",
 
         });
 
@@ -35,7 +35,7 @@ const seedAdmin = async () => {
 
         const hashedPassword = await bcrypt.hash(
 
-            "Admin@123",
+            "rahul@123",
 
             12
 
@@ -59,9 +59,9 @@ const seedAdmin = async () => {
 
         console.log("--------------------------------");
 
-        console.log("Email    : admin@mrce.edu.in");
+        console.log("Email    : rahulreddy@gmail.com");
 
-        console.log("Password : Admin@123");
+        console.log("Password : rahul@123");
 
         console.log("--------------------------------");
 

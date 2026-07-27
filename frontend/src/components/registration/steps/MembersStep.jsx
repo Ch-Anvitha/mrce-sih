@@ -4,8 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { membersSchema } from '@/validation/registration/membersSchema';
 import { useRegistration } from '@/store/RegistrationContext';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Plus, Trash2, Users, AlertCircle } from 'lucide-react';
+import { Users, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function MembersStep({ onNext }) {
@@ -23,7 +22,7 @@ export default function MembersStep({ onNext }) {
     }
   });
 
-  const { fields, append, remove } = useFieldArray({
+  const { fields } = useFieldArray({
     control,
     name: "members"
   });
@@ -50,7 +49,6 @@ export default function MembersStep({ onNext }) {
   };
 
   const totalTeamSize = fields.length + 1; // +1 for the leader
-  const maxReached = fields.length >= 5;
 
   return (
     <form id="members-step-submit-form" onSubmit={handleSubmit(onSubmit)} className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">

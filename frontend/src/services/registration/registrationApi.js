@@ -5,7 +5,21 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1';
 export const apiClient = axios.create({
   baseURL: API_URL,
   withCredentials: true,
+  timeout: 10000,
 });
+
+apiClient.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      // Redirect to login on session expiration
+      if (window.location.pathname.startsWith('/admin')) {
+        window.location.href = '/admin/login?expired=true';
+      }
+    }
+    return Promise.reject(error);
+  }
+);
 
 export const submitRegistration = async (formDataState) => {
   const { team, leader, members, payment } = formDataState;

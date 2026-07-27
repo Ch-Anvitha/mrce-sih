@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import PublicLayout from '@/layouts/PublicLayout';
 
 import { lazy } from 'react';
@@ -19,6 +19,7 @@ const AdminDashboard = lazy(() => import('@/pages/admin/dashboard/AdminDashboard
 const AdminRegistrationsPage = lazy(() => import('@/pages/admin/registrations/AdminRegistrationsPage'));
 const AdminRegistrationDetailsPage = lazy(() => import('@/pages/admin/registrations/AdminRegistrationDetailsPage'));
 const AdminProtectedRoute = lazy(() => import('@/components/admin/auth/AdminProtectedRoute'));
+const AdminNotFound = lazy(() => import('@/pages/errors/AdminNotFound'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -55,10 +56,11 @@ export default function AppRoutes() {
 
             {/* Admin Protected Routes */}
             <Route path="/admin" element={<AdminProtectedRoute />}>
+              <Route index element={<Navigate to="dashboard" replace />} />
               <Route path="dashboard" element={<AdminDashboard />} />
               <Route path="registrations" element={<AdminRegistrationsPage />} />
               <Route path="registrations/:id" element={<AdminRegistrationDetailsPage />} />
-              {/* Other admin routes go here */}
+              <Route path="*" element={<AdminNotFound />} />
             </Route>
 
           </Routes>

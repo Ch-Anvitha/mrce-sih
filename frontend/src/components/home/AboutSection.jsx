@@ -40,43 +40,21 @@ export default function AboutSection() {
             transition={{ duration: 0.3 }}
             className="w-full max-w-lg mx-auto lg:mx-0 order-2 lg:order-1"
           >
-            {/* Custom SVG Illustration */}
-            <svg viewBox="0 0 500 500" className="w-full h-auto drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Innovation and Teamwork Illustration">
-              {/* Background Shapes */}
-              <circle cx="250" cy="250" r="220" fill="#FFFFFF" />
-              <circle cx="250" cy="250" r="220" stroke="#0B1F4D" strokeOpacity="0.05" strokeWidth="2" strokeDasharray="10 10" />
-              <rect x="150" y="150" width="200" height="200" rx="30" fill="#F8FAFC" />
-              
-              {/* Central AI/Innovation Node */}
-              <circle cx="250" cy="250" r="50" fill="#0B1F4D" className="animate-pulse" style={{animationDuration: '3s'}} />
-              <circle cx="250" cy="250" r="35" fill="#F97316" />
-              <path d="M240 240 L260 260 M260 240 L240 260" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" />
-              
-              {/* Orbital Nodes (Teamwork / Technology) */}
-              {/* Top Left */}
-              <circle cx="160" cy="160" r="25" fill="#15803D" />
-              <path d="M150 160 H170 M160 150 V170" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" />
-              <path d="M175 175 L215 215" stroke="#0B1F4D" strokeWidth="3" strokeOpacity="0.2" strokeDasharray="5 5" />
-              
-              {/* Top Right */}
-              <circle cx="340" cy="160" r="20" fill="#F97316" />
-              <circle cx="340" cy="160" r="8" fill="#FFFFFF" />
-              <path d="M325 175 L285 215" stroke="#0B1F4D" strokeWidth="3" strokeOpacity="0.2" strokeDasharray="5 5" />
-              
-              {/* Bottom Right */}
-              <rect x="320" y="320" width="40" height="40" rx="10" fill="#0B1F4D" />
-              <circle cx="340" cy="340" r="6" fill="#FFFFFF" />
-              <path d="M325 325 L285 285" stroke="#0B1F4D" strokeWidth="3" strokeOpacity="0.2" strokeDasharray="5 5" />
-              
-              {/* Bottom Left */}
-              <circle cx="160" cy="340" r="25" fill="#0B1F4D" />
-              <path d="M150 340 H170 M160 330 V350" stroke="#FFFFFF" strokeWidth="3" strokeLinecap="round" />
-              <path d="M175 325 L215 285" stroke="#0B1F4D" strokeWidth="3" strokeOpacity="0.2" strokeDasharray="5 5" />
-
-              {/* Data streams */}
-              <path d="M100 250 H130 M370 250 H400 M250 100 V130 M250 370 V400" stroke="#F97316" strokeWidth="4" strokeLinecap="round" opacity="0.8" />
-              <path d="M60 250 H80 M420 250 H440 M250 60 V80 M250 420 V440" stroke="#15803D" strokeWidth="4" strokeLinecap="round" opacity="0.6" />
-            </svg>
+            {/* Official Logos Composition */}
+            <div className="relative w-full aspect-square md:aspect-[4/3] rounded-2xl bg-white border border-slate-100 shadow-xl overflow-hidden flex items-center justify-center p-8 lg:p-12">
+              <div className="absolute inset-0 bg-slate-50/50 backdrop-blur-3xl -z-10" />
+              <div className="grid grid-cols-2 gap-8 w-full max-w-[400px]">
+                <div className="col-span-2 flex justify-center pb-8 border-b border-slate-100">
+                  <img src="/images/logos/sih-logo.png" alt="Smart India Hackathon Logo" className="h-32 sm:h-40 w-auto object-contain drop-shadow-md" />
+                </div>
+                <div className="flex justify-center pt-2">
+                  <img src="/images/logos/mrce-logo.jpg" alt="MRCE Logo" className="h-20 sm:h-24 w-auto object-contain drop-shadow-sm" />
+                </div>
+                <div className="flex justify-center pt-2 border-l border-slate-100 pl-8">
+                  <img src="/images/logos/iic-logo.png" alt="IIC Logo" className="h-20 sm:h-24 w-auto object-contain drop-shadow-sm" />
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Right Column: Content */}

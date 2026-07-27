@@ -37,13 +37,9 @@ export default function Navbar() {
         {/* Left: Logos */}
         <div className="flex items-center gap-4 lg:gap-6">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center font-heading font-bold text-primary hidden sm:flex border border-primary/20">
-                M
-              </div>
-              <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center font-heading font-bold text-accent hidden sm:flex border border-accent/20">
-                IIC
-              </div>
+            <div className="flex items-center gap-3">
+              <img src="/images/logos/mrce-logo.jpg" alt="MRCE Logo" className="h-10 sm:h-12 w-auto object-contain" />
+              <img src="/images/logos/iic-logo.png" alt="IIC Logo" className="h-10 sm:h-12 w-auto object-contain" />
             </div>
             <div className="flex flex-col">
               <span className="font-heading font-bold text-sm lg:text-base leading-tight text-primary transition-colors group-hover:text-accent">

@@ -1,8 +1,11 @@
 import React from 'react';
 import AppRoutes from './routes/AppRoutes';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 
 export default function App() {
   return (
-    <AppRoutes />
+    <ErrorBoundary>
+      <AppRoutes />
+    </ErrorBoundary>
   );
 }

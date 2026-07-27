@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import SEO from '@/components/seo/SEO';
 import { Button } from '@/components/ui/button';
 import { 
-  ArrowLeft, Users, GraduationCap, MapPin, 
+  ArrowLeft, Users, GraduationCap, 
   Briefcase, Mail, Phone, Calendar, FileText, 
   ChevronRight, Building, CreditCard
 } from 'lucide-react';
@@ -83,44 +83,44 @@ export default function AdminRegistrationDetailsPage() {
 
           {/* Quick Summary Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+            <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 group">
+              <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <Users className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-0.5">Total Members</p>
+                <p className="text-[11px] text-slate-500 uppercase font-bold tracking-wider mb-0.5">Total Members</p>
                 <p className="text-lg font-bold text-slate-900">{totalMembers} Students</p>
               </div>
             </div>
 
-            <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center shrink-0">
+            <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 group">
+              <div className="w-10 h-10 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <Building className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-0.5">Department</p>
+                <p className="text-[11px] text-slate-500 uppercase font-bold tracking-wider mb-0.5">Department</p>
                 <p className="text-lg font-bold text-slate-900">{registration.leader?.department}</p>
               </div>
             </div>
 
-            <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+            <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 group">
+              <div className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <Calendar className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-0.5">Registration Date</p>
+                <p className="text-[11px] text-slate-500 uppercase font-bold tracking-wider mb-0.5">Registration Date</p>
                 <p className="text-base font-bold text-slate-900 whitespace-nowrap">
                   {format(new Date(registration.createdAt), 'MMM dd, yyyy')}
                 </p>
               </div>
             </div>
 
-            <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
+            <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 group">
+              <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <CreditCard className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-0.5">Payment Status</p>
+                <p className="text-[11px] text-slate-500 uppercase font-bold tracking-wider mb-0.5">Payment Status</p>
                 <div className="mt-0.5">
                   <StatusBadge status={registration.status} />
                 </div>
@@ -170,8 +170,8 @@ export default function AdminRegistrationDetailsPage() {
                 <h3 className="text-lg font-bold text-slate-800 px-1">Team Participants</h3>
                 
                 {/* Leader */}
-                <div className="bg-white rounded-xl border border-blue-200 shadow-sm overflow-hidden relative">
-                  <div className="absolute top-0 left-0 w-1.5 h-full bg-blue-500" />
+                <div className="bg-white rounded-xl border border-blue-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 overflow-hidden relative group">
+                  <div className="absolute top-0 left-0 w-1.5 h-full bg-blue-500 group-hover:w-2 transition-all" />
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-4 border-b border-slate-100 pb-4">
                       <div className="flex items-center gap-4">
@@ -216,8 +216,8 @@ export default function AdminRegistrationDetailsPage() {
 
                 {/* Members */}
                 {registration.members?.map((member, idx) => (
-                  <div key={idx} className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden relative">
-                    <div className="absolute top-0 left-0 w-1.5 h-full bg-slate-300" />
+                  <div key={idx} className="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 overflow-hidden relative group">
+                    <div className="absolute top-0 left-0 w-1.5 h-full bg-slate-300 group-hover:w-2 transition-all" />
                     <div className="p-6">
                       <div className="flex items-start justify-between mb-4 border-b border-slate-100 pb-4">
                         <div className="flex items-center gap-4">

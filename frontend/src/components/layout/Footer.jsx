@@ -50,8 +50,8 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <h3 className="font-heading text-xl font-bold text-accent">Organized By</h3>
             <div className="bg-white/10 rounded-lg p-5 w-fit border border-white/10 flex flex-col items-center">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center font-heading font-bold text-primary mb-3">
-                IIC
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 p-1.5 overflow-hidden">
+                <img src="/images/logos/iic-logo.png" alt="IIC Logo" className="w-full h-full object-contain" />
               </div>
               <span className="text-white font-bold block text-sm text-center">Institution Innovation Council</span>
               <span className="text-white/70 block text-xs text-center mt-1">MRCE Chapter</span>

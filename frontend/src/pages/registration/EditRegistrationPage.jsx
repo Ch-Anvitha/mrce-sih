@@ -33,7 +33,7 @@ function EditRegistrationFlow() {
       setFormData(formData);
       setEditSession({
         isEditMode: true,
-        registrationId: raw._id,
+        registrationId: raw.registrationId,
         editCode: editCode,
         status: raw.status,
         isLocked: raw.isLocked,

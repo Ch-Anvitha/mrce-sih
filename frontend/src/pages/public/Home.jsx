@@ -1,6 +1,7 @@
 import React from 'react';
 import SEO from '@/components/seo/SEO';
 import HeroSection from '@/components/home/HeroSection';
+import OrganizedBySection from '@/components/home/OrganizedBySection';
 import AboutSection from '@/components/home/AboutSection';
 import WhyParticipateSection from '@/components/home/WhyParticipateSection';
 import EventDetailsSection from '@/components/home/EventDetailsSection';
@@ -14,6 +15,7 @@ export default function Home() {
     <div className="flex flex-col w-full">
       <SEO />
       <HeroSection />
+      <OrganizedBySection />
       <StatsSection />
       <AboutSection />
       <WhyParticipateSection />

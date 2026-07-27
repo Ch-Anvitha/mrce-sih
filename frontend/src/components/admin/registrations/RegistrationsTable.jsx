@@ -37,9 +37,9 @@ export default function RegistrationsTable({ registrations, isLoading, isError, 
 
   if (!registrations || registrations.length === 0) {
     return (
-      <div className="bg-white border-t border-x border-slate-200 rounded-t-xl flex flex-col items-center justify-center py-20 px-4 text-center">
-        <div className="w-20 h-20 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center mb-6">
-          <Inbox className="w-10 h-10" />
+      <div className="bg-white border-t border-x border-slate-200 rounded-t-xl flex flex-col items-center justify-center py-24 px-4 text-center">
+        <div className="w-20 h-20 bg-slate-50 text-slate-400 rounded-full flex items-center justify-center mb-6 ring-8 ring-slate-50/50">
+          <Inbox className="w-8 h-8 stroke-[1.5]" />
         </div>
         <h4 className="text-xl font-bold text-slate-800 mb-2">No Registrations Found</h4>
         <p className="text-slate-500 max-w-md">
@@ -52,7 +52,7 @@ export default function RegistrationsTable({ registrations, isLoading, isError, 
   return (
     <div className="bg-white border-t border-x border-slate-200 rounded-t-xl overflow-x-auto">
       <table className="w-full text-sm text-left whitespace-nowrap">
-        <thead className="text-xs text-slate-500 uppercase bg-slate-50 border-b border-slate-200">
+        <thead className="text-[11px] font-bold text-slate-500 uppercase tracking-wider bg-slate-50 border-b border-slate-200">
           <tr>
             <th className="px-6 py-4 font-bold">Team Name & ID</th>
             <th className="px-6 py-4 font-bold">Leader Details</th>

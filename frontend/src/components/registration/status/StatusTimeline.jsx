@@ -52,7 +52,7 @@ export const StatusTimeline = ({ status }) => {
               <div key={step.id} className="flex sm:flex-col items-center gap-4 sm:gap-3 relative z-10 sm:flex-1">
                 {/* Mobile line connecting steps vertically */}
                 {index !== steps.length - 1 && (
-                  <div className="absolute left-[1.125rem] top-10 w-0.5 h-full bg-slate-200 sm:hidden -translate-x-1/2" />
+                  <div className="absolute left-5 top-10 w-0.5 h-full bg-slate-200 sm:hidden -translate-x-1/2" />
                 )}
                 
                 <div className={cn(

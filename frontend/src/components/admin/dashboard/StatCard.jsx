@@ -19,7 +19,7 @@ export default function StatCard({ title, value, icon: Icon, colorClass, borderC
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay }}
-      className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-all relative overflow-hidden group"
+      className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group"
     >
       <div className={cn("absolute top-0 left-0 w-1 h-full transition-all group-hover:w-1.5", borderColorClass)} />
       <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center mb-4 transition-transform group-hover:scale-110", colorClass)}>
