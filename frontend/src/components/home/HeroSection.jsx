@@ -3,14 +3,9 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Clock, MapPin, Users, Lightbulb } from 'lucide-react';
-import Countdown from './Countdown';
-import InfoCard from './InfoCard';
+import InfoCard from './InfoCard'; // Assuming you still use this if needed, though we mapped them inline below
 
 export default function HeroSection() {
-  // Configurable placeholder date (e.g., 30 days from now)
-  const targetDate = new Date();
-  targetDate.setDate(targetDate.getDate() + 30);
-
   const infoCards = [
     {
       icon: Clock,
@@ -35,108 +30,111 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="relative w-full bg-white overflow-hidden pt-28 pb-16 md:pt-32 md:pb-24 lg:pt-36 lg:pb-32">
-      {/* Background Gradients */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/[0.04] to-transparent blur-3xl"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/[0.04] to-transparent blur-3xl"></div>
+    <section className="relative w-full bg-[#030712] text-white overflow-hidden py-16 md:py-24 lg:py-32">
+      {/* Classy Subtle Gold Dot Matrix Background */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0 opacity-20"
+        style={{
+          backgroundImage: `radial-gradient(rgba(212, 175, 55, 0.4) 1.5px, transparent 1.5px)`,
+          backgroundSize: '36px 36px'
+        }}
+      ></div>
+
+      {/* Ambient Gradients for Depth */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-amber-500/10 blur-[120px]"></div>
+        <div className="absolute bottom-[10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-amber-600/5 blur-[120px]"></div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 max-w-7xl">
         
-        {/* TOP TIER: Title & Logo */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12 mb-12 lg:mb-16">
-          <div className="flex flex-col gap-6 lg:w-[55%]">
-            {/* Event Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.2 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 w-fit shadow-sm"
-            >
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_8px_rgba(249,115,22,0.6)]"></span>
-              <span className="text-xs sm:text-sm font-semibold text-slate-700 tracking-wide uppercase">
-                Internal Hackathon &bull; MRCE &bull; 2026
-              </span>
-            </motion.div>
+        {/* TOP SECTION: Badge, Logo, and HUGE Title */}
+        <div className="flex flex-col mb-12 lg:mb-16">
+          {/* Event Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-amber-500/30 w-fit shadow-md backdrop-blur-md mb-8"
+          >
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse shadow-[0_0_8px_rgba(251,191,36,0.9)]"></span>
+            <span className="text-xs sm:text-sm font-bold text-amber-400 tracking-wider uppercase">
+              Internal Hackathon &bull; MRCE &bull; 2026
+            </span>
+          </motion.div>
 
-            {/* Main Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, delay: 0.05 }}
-              className="font-heading text-4xl sm:text-5xl lg:text-[4rem] font-bold text-primary leading-[1.1] tracking-tight"
-            >
-              Internal Smart India <br className="hidden sm:block" />
-              Hackathon 2026
-            </motion.h1>
-          </div>
-
-          <div className="flex justify-center lg:justify-end lg:w-[45%] w-full lg:pt-14">
-            {/* SIH Official Logo */}
+          {/* Title Row */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 lg:gap-8">
             <motion.img
               src="/images/logos/sih-logo.png"
               alt="Smart India Hackathon Logo"
-              className="w-full max-w-[280px] lg:max-w-[360px] object-contain drop-shadow-xl"
-              animate={{ y: [-8, 8, -8] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 object-contain shrink-0 [mix-blend-mode:screen] filter drop-shadow-[0_0_15px_rgba(251,191,36,0.25)] bg-transparent"
+              animate={{ y: [-3, 3, -3] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
+            <motion.h1
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="font-heading text-5xl sm:text-6xl lg:text-[5rem] font-extrabold text-white leading-[1.05] tracking-tight"
+            >
+              Internal Smart India <br className="hidden lg:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-500 to-amber-600 mt-2 inline-block">
+                Hackathon 2026
+              </span>
+            </motion.h1>
           </div>
         </div>
 
-        {/* BOTTOM TIER: Countdown/CTAs & Cards */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-12 w-full">
+        {/* BOTTOM SECTION: Split Layout (Text/CTAs Left, Cards Right) */}
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-16 w-full">
           
-          {/* Left Column (55%) */}
-          <div className="flex flex-col gap-8 lg:w-[55%] w-full">
-            
-            {/* Premium Countdown Card */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              className="bg-white rounded-[24px] p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100"
-            >
-              <h3 className="text-sm font-bold text-slate-400 uppercase tracking-[0.15em] mb-6">Registration Ends In</h3>
-              <Countdown targetDate={targetDate} />
-            </motion.div>
-
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, delay: 0.15 }}
-              className="flex flex-wrap items-center gap-4 pt-2"
-            >
-              <Button render={<Link to="/register" />} size="lg" className="bg-primary text-white hover:bg-primary/90 h-14 px-8 text-base shadow-md hover:shadow-lg transition-all duration-200 rounded-xl">
-                Register Now
-              </Button>
-              <Button render={<Link to="/timeline" />} size="lg" variant="outline" className="h-14 px-8 text-base border-primary/20 text-primary hover:bg-primary/5 transition-all duration-200 rounded-xl">
-                View Timeline
-              </Button>
-            </motion.div>
-
-            {/* Supporting Text */}
+          {/* Left Column - Description & Buttons */}
+          <div className="flex flex-col gap-8 w-full lg:w-[45%] lg:pt-2">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, delay: 0.2 }}
-              className="text-lg text-slate-600 leading-relaxed max-w-xl"
+              transition={{ duration: 0.3, delay: 0.2 }}
+              className="text-lg sm:text-xl text-slate-300 leading-relaxed font-medium"
             >
-              Unleash your innovation and problem-solving skills in a collaborative team environment. Seize the opportunity to build the future and represent MRCE at the national level.
+              Innovate, collaborate, and represent MRCE at the national level. Build the future with your team.
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.3 }}
+              className="flex flex-wrap items-center gap-4"
+            >
+              <Button render={<Link to="/register" />} size="lg" className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold h-14 px-8 text-lg rounded-xl shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all duration-300 hover:scale-[1.02]">
+                Register Now
+              </Button>
+              <Button render={<Link to="/timeline" />} size="lg" variant="outline" className="h-14 px-8 text-lg font-semibold border-slate-700 text-slate-300 bg-slate-900/50 hover:bg-slate-800 hover:text-white hover:border-amber-500/50 transition-all duration-300 rounded-xl backdrop-blur-sm">
+                View Timeline
+              </Button>
+            </motion.div>
           </div>
 
-          {/* Right Column (45%) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:w-[45%] w-full">
+          {/* Right Column - 2x2 Cards Grid */}
+          <div className="w-full lg:w-[50%] grid grid-cols-1 sm:grid-cols-2 gap-5">
             {infoCards.map((card, index) => (
-              <InfoCard
+              <motion.div
                 key={card.title}
-                icon={card.icon}
-                title={card.title}
-                description={card.description}
-                delay={0.2 + (index * 0.05)}
-              />
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.4 + (index * 0.1) }}
+                className="group relative bg-[#0B1120] border border-slate-800 rounded-2xl p-6 shadow-xl hover:border-amber-500/40 hover:bg-slate-900/80 transition-all duration-300 flex flex-col justify-start"
+              >
+                <div className="w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 mb-5 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all duration-300">
+                  <card.icon className="w-6 h-6" />
+                </div>
+                <h4 className="font-heading text-lg font-bold text-slate-100 tracking-wide mb-2 group-hover:text-amber-400 transition-colors">
+                  {card.title}
+                </h4>
+                <p className="text-sm text-slate-400 leading-relaxed font-sans">
+                  {card.description}
+                </p>
+              </motion.div>
             ))}
           </div>
 

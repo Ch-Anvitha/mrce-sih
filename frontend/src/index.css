@@ -15,25 +15,32 @@ html {
 }
 
 @theme inline {
-    --font-heading: 'Poppins', sans-serif;
+    --font-heading: 'Oswald', sans-serif;
     --font-sans: 'Inter', sans-serif;
     --font-mono: 'Roboto Mono', monospace;
 
+    /* Primary brand blue - used for text, borders, and structural elements */
     --color-primary: #0B1F4D;
     --color-primary-foreground: #FFFFFF;
-    
-    --color-accent: #F97316;
-    --color-accent-foreground: #FFFFFF;
-    
+
+    /* Gold is now a STRONGER presence - full seal-gold, used for hero backgrounds,
+       badges, buttons, and anything that should feel "official/awarded" */
+    --color-accent: #C9A227;
+    --color-accent-foreground: #0B1F4D;
+
     --color-success: #15803D;
     --color-success-foreground: #FFFFFF;
-    
-    --color-background: #FFFFFF;
-    --color-foreground: #0f172a;
-    
-    --color-section: #F8FAFC;
-    --color-border: #E2E8F0;
-    
+
+    /* Main page background stays paper-white for readability */
+    --color-background: #FAF8F2;
+    --color-foreground: #0B1F4D;
+
+    /* Section background - a warmer, slightly gold-tinted paper tone,
+       so alternating sections feel like part of the same "document" family */
+    --color-section: #F3EDDD;
+
+    --color-border: #C7D2E8;
+
     --color-error: #DC2626;
     --color-error-foreground: #FFFFFF;
 

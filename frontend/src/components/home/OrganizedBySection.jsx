@@ -16,8 +16,8 @@ export default function OrganizedBySection() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white border-t border-slate-100">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+    <section className="py-16 md:py-24 bg-[#030712] border-t border-slate-800/80 relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         <motion.div 
           className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto"
           initial="hidden"
@@ -27,7 +27,7 @@ export default function OrganizedBySection() {
         >
           <motion.h3 
             variants={itemVariants}
-            className="text-sm font-bold text-slate-400 uppercase tracking-[0.2em] mb-10 md:mb-16"
+            className="text-sm font-bold text-amber-400 uppercase tracking-[0.2em] mb-10 md:mb-16"
           >
             Organized By
           </motion.h3>
@@ -37,7 +37,7 @@ export default function OrganizedBySection() {
               <img 
                 src="/images/logos/mrce-logo.jpg" 
                 alt="Malla Reddy College of Engineering Logo" 
-                className="h-20 sm:h-24 md:h-28 w-auto object-contain grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+                className="h-20 sm:h-24 md:h-28 w-auto object-contain filter drop-shadow-[0_0_10px_rgba(255,255,255,0.15)] group-hover:scale-105 transition-all duration-500"
               />
             </motion.div>
             
@@ -45,7 +45,7 @@ export default function OrganizedBySection() {
               <img 
                 src="/images/logos/iic-logo.png" 
                 alt="Institution's Innovation Council Logo" 
-                className="h-20 sm:h-24 md:h-28 w-auto object-contain grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+                className="h-20 sm:h-24 md:h-28 w-auto object-contain filter drop-shadow-[0_0_10px_rgba(255,255,255,0.15)] group-hover:scale-105 transition-all duration-500"
               />
             </motion.div>
 
@@ -53,7 +53,7 @@ export default function OrganizedBySection() {
               <img 
                 src="/images/logos/sih-logo.png" 
                 alt="Smart India Hackathon Logo" 
-                className="h-20 sm:h-24 md:h-28 w-auto object-contain grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+                className="h-20 sm:h-24 md:h-28 w-auto object-contain filter drop-shadow-[0_0_10px_rgba(255,255,255,0.15)] group-hover:scale-105 transition-all duration-500"
               />
             </motion.div>
           </div>

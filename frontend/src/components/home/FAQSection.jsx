@@ -5,8 +5,8 @@ import FAQItem from './FAQItem';
 
 export default function FAQSection() {
   return (
-    <section className="w-full py-16 md:py-24 bg-white relative" aria-labelledby="faq-heading">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+    <section className="w-full py-16 md:py-24 bg-[#030712] relative overflow-hidden border-t border-slate-800/80" aria-labelledby="faq-heading">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 lg:mb-16">
@@ -16,7 +16,7 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.25 }}
-            className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6"
+            className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
           >
             Frequently Asked Questions
           </motion.h2>
@@ -26,7 +26,7 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.25, delay: 0.1 }}
-            className="text-lg text-slate-600 leading-relaxed"
+            className="text-lg text-slate-400 leading-relaxed"
           >
             Find answers to the most common questions students have before registering. Understanding the rules ensures a smooth and successful registration process.
           </motion.p>

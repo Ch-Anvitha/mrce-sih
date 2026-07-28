@@ -2,21 +2,30 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import ScrollProgress from '@/components/layout/ScrollProgress';
-import BackToTop from '@/components/layout/BackToTop';
 
 export default function PublicLayout() {
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-background selection:bg-accent/20 selection:text-primary">
-      <ScrollProgress />
+    <div className="min-h-screen bg-[#030712] text-slate-100 flex flex-col selection:bg-amber-500 selection:text-slate-950">
+      {/* Sticky Dark Navbar */}
       <Navbar />
-      {/* Spacer to prevent content from going under fixed navbar */}
-      <div className="h-[72px] md:h-[84px]" aria-hidden="true"></div> 
-      <main className="flex-1 flex flex-col w-full bg-section">
-        <Outlet />
+
+      {/* Main Page Content Container */}
+      <main className="flex-grow bg-[#030712] text-slate-100 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 pointer-events-none z-0 opacity-20"
+          style={{
+            backgroundImage: `radial-gradient(rgba(212, 175, 55, 0.4) 1.5px, transparent 1.5px)`,
+            backgroundSize: '36px 36px'
+          }}
+        ></div>
+        
+        <div className="relative z-10">
+          <Outlet />
+        </div>
       </main>
+
+      {/* Footer */}
       <Footer />
-      <BackToTop />
     </div>
   );
 }

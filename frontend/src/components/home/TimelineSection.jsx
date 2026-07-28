@@ -5,8 +5,8 @@ import TimelineItem from './TimelineItem';
 
 export default function TimelineSection() {
   return (
-    <section className="w-full py-16 md:py-24 bg-section relative overflow-hidden" aria-labelledby="timeline-heading">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+    <section className="w-full py-16 md:py-24 bg-[#030712] relative overflow-hidden border-t border-slate-800/80" aria-labelledby="timeline-heading">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 lg:mb-24">
@@ -16,7 +16,7 @@ export default function TimelineSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.25 }}
-            className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6"
+            className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
           >
             Journey to Smart India Hackathon
           </motion.h2>
@@ -26,7 +26,7 @@ export default function TimelineSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.25, delay: 0.1 }}
-            className="text-lg text-slate-600 leading-relaxed"
+            className="text-lg text-slate-400 leading-relaxed"
           >
             Follow the complete path from your initial idea generation to representing MRCE on the national stage. Ensure your team completes every step of this journey for the ultimate innovation challenge.
           </motion.p>
@@ -36,13 +36,13 @@ export default function TimelineSection() {
         <div className="relative w-full mx-auto">
           
           {/* Desktop Horizontal Line (Animated) */}
-          <div className="hidden lg:block absolute top-[31px] left-[8.33%] right-[8.33%] h-0.5 bg-border z-0 overflow-hidden">
+          <div className="hidden lg:block absolute top-[31px] left-[8.33%] right-[8.33%] h-0.5 bg-slate-800 z-0 overflow-hidden">
             <motion.div 
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-              className="absolute top-0 left-0 bottom-0 bg-primary/30 origin-left w-full"
+              className="absolute top-0 left-0 bottom-0 bg-amber-500/40 origin-left w-full"
             />
           </div>
 
