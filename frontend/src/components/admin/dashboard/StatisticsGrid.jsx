@@ -15,7 +15,7 @@ export default function StatisticsGrid({ data, isLoading }) {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         {[1, 2, 3, 4, 5, 6].map((i) => (
-          <Skeleton key={i} className="h-32 rounded-xl" />
+          <Skeleton key={i} className="h-32 rounded-xl bg-slate-800/60 border border-slate-800" />
         ))}
       </div>
     );
@@ -36,7 +36,7 @@ export default function StatisticsGrid({ data, isLoading }) {
         title="Total Teams" 
         value={stats.totalRegistrations} 
         icon={Users}
-        colorClass="text-blue-600 bg-blue-100"
+        colorClass="text-blue-400 bg-blue-950/60 border border-blue-500/20"
         borderColorClass="bg-blue-500"
         delay={0.1}
       />
@@ -44,7 +44,7 @@ export default function StatisticsGrid({ data, isLoading }) {
         title="Payment Pending" 
         value={stats.paymentPending} 
         icon={CreditCard}
-        colorClass="text-amber-600 bg-amber-100"
+        colorClass="text-amber-400 bg-amber-950/60 border border-amber-500/20"
         borderColorClass="bg-amber-500"
         delay={0.15}
       />
@@ -52,7 +52,7 @@ export default function StatisticsGrid({ data, isLoading }) {
         title="Approved" 
         value={stats.approved} 
         icon={CheckCircle2}
-        colorClass="text-emerald-600 bg-emerald-100"
+        colorClass="text-emerald-400 bg-emerald-950/60 border border-emerald-500/20"
         borderColorClass="bg-emerald-500"
         delay={0.2}
       />
@@ -60,7 +60,7 @@ export default function StatisticsGrid({ data, isLoading }) {
         title="Rejected" 
         value={stats.rejected} 
         icon={XCircle}
-        colorClass="text-red-600 bg-red-100"
+        colorClass="text-red-400 bg-red-950/60 border border-red-500/20"
         borderColorClass="bg-red-500"
         delay={0.25}
       />
@@ -68,7 +68,7 @@ export default function StatisticsGrid({ data, isLoading }) {
         title="Unlocked" 
         value={stats.unlocked} 
         icon={Unlock}
-        colorClass="text-violet-600 bg-violet-100"
+        colorClass="text-violet-400 bg-violet-950/60 border border-violet-500/20"
         borderColorClass="bg-violet-500"
         delay={0.3}
       />
@@ -76,7 +76,7 @@ export default function StatisticsGrid({ data, isLoading }) {
         title="Locked" 
         value={stats.locked} 
         icon={Lock}
-        colorClass="text-slate-600 bg-slate-100"
+        colorClass="text-slate-300 bg-slate-900/80 border border-slate-700/60"
         borderColorClass="bg-slate-500"
         delay={0.35}
       />

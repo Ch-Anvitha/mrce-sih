@@ -1,56 +1,62 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight, Save, Loader2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Save } from 'lucide-react';
 
-export default function NavigationButtons({ onNext, onPrevious, onSave, isFirstStep, isLastStep, isLoading, isReadOnly }) {
+export default function NavigationButtons({
+  onNext,
+  onPrevious,
+  onSave,
+  isFirstStep,
+  isLastStep,
+  isLoading,
+  isReadOnly
+}) {
   return (
-    <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 mt-8 pt-6 border-t border-border">
-      <Button 
-        variant="outline" 
-        onClick={onPrevious} 
-        disabled={isFirstStep || isLoading}
-        aria-disabled={isFirstStep || isLoading}
-        className="h-11 w-full sm:w-[120px]"
-      >
-        <ChevronLeft className="w-4 h-4 mr-2" />
-        Back
-      </Button>
-      
-      <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+    <div className="flex items-center justify-between pt-6 border-t border-slate-800 w-full mt-6">
+      {/* Back Button */}
+      {!isFirstStep ? (
+        <Button
+          type="button"
+          variant="outline"
+          onClick={onPrevious}
+          className="bg-[#0B1120] border-slate-700 text-slate-200 hover:bg-slate-800 hover:text-white hover:border-amber-500/40 rounded-xl px-6 py-3 font-semibold transition-all flex items-center gap-2"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back
+        </Button>
+      ) : (
+        <div /> /* Empty spacer to keep layout balanced */
+      )}
+
+      {/* Right Side Actions */}
+      <div className="flex items-center gap-3">
         {!isReadOnly && (
-          <Button 
-            variant="secondary"
+          <Button
+            type="button"
+            variant="outline"
             onClick={onSave}
-            disabled={isLoading}
-            aria-disabled={isLoading}
-            className="h-11 w-full sm:w-auto bg-slate-100 hover:bg-slate-200 text-slate-700"
+            className="bg-[#0B1120] border-slate-700 text-slate-200 hover:bg-slate-800 hover:text-white hover:border-amber-500/40 rounded-xl px-5 py-3 font-semibold transition-all flex items-center gap-2"
           >
-            <Save className="w-4 h-4 mr-2" />
-            Save Progress
+            <Save className="w-4 h-4 text-amber-400" />
+            <span className="hidden sm:inline">Save Progress</span>
           </Button>
         )}
 
-        {!(isReadOnly && isLastStep) && (
-          <Button 
-            onClick={onNext} 
-            disabled={isLoading}
-            aria-disabled={isLoading}
-            aria-busy={isLoading}
-            className="h-11 w-full sm:w-[140px] bg-primary text-white hover:bg-primary/90"
-          >
-            {isLoading ? (
-              <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                Processing...
-              </>
-            ) : (
-              <>
-                {isLastStep ? 'Submit Update' : 'Continue'}
-                {!isLastStep && <ChevronRight className="w-4 h-4 ml-2" />}
-              </>
-            )}
-          </Button>
-        )}
+        <Button
+          type="button"
+          onClick={onNext}
+          disabled={isLoading}
+          className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl px-7 py-3 transition-transform hover:scale-105 duration-200 shadow-lg shadow-amber-500/20 flex items-center gap-2"
+        >
+          {isLoading ? (
+            <span>Processing...</span>
+          ) : (
+            <>
+              {isLastStep ? 'Submit Registration' : 'Continue'}
+              {!isLastStep && <ArrowRight className="w-4 h-4" />}
+            </>
+          )}
+        </Button>
       </div>
     </div>
   );

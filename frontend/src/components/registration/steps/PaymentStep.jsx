@@ -86,58 +86,70 @@ export default function PaymentStep({ onNext }) {
       <motion.p 
         initial={{ opacity: 0, y: -5 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-destructive text-sm mt-1.5 font-medium flex items-center gap-1.5"
+        className="text-red-400 text-xs mt-1.5 font-medium flex items-center gap-1.5"
         role="alert"
         aria-live="polite"
       >
-        <AlertCircle className="w-4 h-4 shrink-0" />
+        <AlertCircle className="w-3.5 h-3.5 shrink-0" />
         {error.message}
       </motion.p>
     );
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <div className="space-y-6">
         <div>
-          <h2 className="text-2xl font-heading font-bold text-primary">Payment Details</h2>
-          <p className="text-muted-foreground text-sm">Please pay the registration fee via UPI and upload the receipt.</p>
+          <h2 className="text-xl font-bold text-amber-400 tracking-tight">Payment Details</h2>
+          <p className="text-slate-400 text-sm mt-1">Please pay the registration fee via UPI and upload the receipt.</p>
         </div>
 
-        <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-1">
-            <h3 className="font-bold text-slate-800">Registration Fee: <span className="text-primary">₹500</span></h3>
-            <p className="text-sm text-slate-600">Scan the QR code or pay to the UPI ID provided below.</p>
-            <p className="font-mono text-sm font-semibold bg-white px-3 py-1.5 rounded border border-slate-200 w-fit mt-2">sih.mrce@upi</p>
+        {/* Payment instructions and QR container */}
+        <div className="bg-[#030712] border border-slate-800 rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+          <div className="space-y-2">
+            <h3 className="font-bold text-sm text-slate-200">Registration Fee: <span className="text-amber-400 font-extrabold">₹500</span></h3>
+            <p className="text-xs text-slate-400">Scan the QR code or pay to the UPI ID provided below.</p>
+            <div className="font-mono text-xs font-semibold bg-[#0B1120] text-amber-300 px-3.5 py-2 rounded-lg border border-slate-700 w-fit tracking-wide shadow-inner">
+              sih.mrce@upi
+            </div>
           </div>
-          <div className="w-32 h-32 bg-white rounded-lg border-2 border-dashed border-primary/30 flex items-center justify-center text-primary/50 text-sm font-medium">
+          <div className="w-32 h-32 bg-[#0B1120] rounded-xl border border-slate-700 flex items-center justify-center text-slate-400 text-xs font-medium shadow-inner shrink-0">
             QR Code
           </div>
         </div>
 
-        <div className="space-y-2 mt-4">
-          <label htmlFor="transactionId" className="text-sm font-semibold text-slate-700">Transaction ID <span className="text-destructive">*</span></label>
+        {/* Transaction ID */}
+        <div className="space-y-2 pt-2">
+          <label htmlFor="transactionId" className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+            Transaction ID <span className="text-amber-500">*</span>
+          </label>
           <Input 
             id="transactionId" 
             placeholder="e.g. 123456789012"
             aria-invalid={!!errors.transactionId}
-            className={`h-11 md:w-1/2 ${errors.transactionId ? 'border-destructive focus-visible:ring-destructive/20' : ''}`}
+            className={`h-11 md:w-1/2 bg-[#030712] text-white placeholder-slate-500 transition-all ${errors.transactionId ? 'border-red-500 focus-visible:ring-red-500' : 'border-slate-700 focus-visible:border-amber-500 focus-visible:ring-amber-500'}`}
             {...register('transactionId')}
           />
           <ErrorMessage error={errors.transactionId} />
         </div>
 
-        <div className="space-y-2 pt-4 border-t border-border mt-6">
-          <label className="text-sm font-semibold text-slate-700">Payment Screenshot <span className="text-destructive">*</span></label>
+        {/* Divider */}
+        <div className="h-px bg-slate-800 w-full my-6" />
+
+        {/* Payment Screenshot Upload Box */}
+        <div className="space-y-2">
+          <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+            Payment Screenshot <span className="text-amber-500">*</span>
+          </label>
           
           {!previewUrl && selectedFile?.isExisting !== true ? (
             <div 
               tabIndex={0}
               role="button"
               aria-label="Upload Payment Screenshot"
-              className={`relative flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
-                ${dragActive ? 'border-primary bg-primary/5' : 'border-slate-300 hover:bg-slate-50'}
-                ${errors.paymentScreenshot ? 'border-destructive bg-destructive/5' : ''}
+              className={`relative flex flex-col items-center justify-center w-full h-56 border-2 border-dashed rounded-xl transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-500
+                ${dragActive ? 'border-amber-500 bg-amber-950/10' : 'border-slate-700 hover:border-slate-600 bg-[#030712]'}
+                ${errors.paymentScreenshot ? 'border-red-500 bg-red-950/10' : ''}
               `}
               onDragEnter={handleDrag}
               onDragLeave={handleDrag}
@@ -157,51 +169,51 @@ export default function PaymentStep({ onNext }) {
                 onChange={handleChange}
                 className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
               />
-              <UploadCloud className={`w-12 h-12 mb-4 ${errors.paymentScreenshot ? 'text-destructive' : 'text-slate-400'}`} />
-              <p className="mb-2 text-sm text-slate-600 font-medium">
-                <span className="font-semibold text-primary">Click to upload</span> or drag and drop
+              <UploadCloud className={`w-10 h-10 mb-3 ${errors.paymentScreenshot ? 'text-red-400' : 'text-slate-400'}`} />
+              <p className="mb-1 text-xs text-slate-300 font-medium">
+                <span className="font-semibold text-amber-400">Click to upload</span> or drag and drop
               </p>
-              <p className="text-xs text-muted-foreground">PNG, JPG or JPEG (Max 5MB)</p>
+              <p className="text-[11px] text-slate-500">PNG, JPG or JPEG (Max 5MB)</p>
             </div>
           ) : (
-            <div className="relative flex flex-col sm:flex-row gap-6 p-4 border border-slate-200 rounded-xl bg-slate-50">
-              <div className="w-full sm:w-1/3 aspect-[4/3] rounded-lg overflow-hidden border border-slate-200 bg-black/5 relative flex items-center justify-center group">
+            <div className="relative flex flex-col sm:flex-row gap-5 p-4 border border-slate-700 rounded-xl bg-[#030712] shadow-inner">
+              <div className="w-full sm:w-1/3 aspect-[4/3] rounded-lg overflow-hidden border border-slate-700 bg-black/40 relative flex items-center justify-center group">
                 {previewUrl ? (
                   <img src={previewUrl} alt="Payment Receipt" className="object-contain w-full h-full" />
                 ) : (
                   <div className="flex flex-col items-center justify-center text-slate-400">
-                    <ImageIcon className="w-10 h-10 mb-2" />
-                    <span className="text-sm font-medium">Receipt on File</span>
+                    <ImageIcon className="w-8 h-8 mb-1.5 text-slate-500" />
+                    <span className="text-xs font-medium">Receipt on File</span>
                   </div>
                 )}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <Button type="button" variant="destructive" size="sm" onClick={removeFile}>
-                    <Trash2 className="w-4 h-4 mr-2" /> Replace
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <Button type="button" variant="destructive" size="sm" onClick={removeFile} className="bg-red-600 hover:bg-red-700 text-xs h-8">
+                    <Trash2 className="w-3.5 h-3.5 mr-1.5" /> Replace
                   </Button>
                 </div>
               </div>
               <div className="flex-1 flex flex-col justify-center">
-                <div className="flex items-center gap-2 mb-2">
-                  <ImageIcon className="w-5 h-5 text-primary" />
-                  <span className="font-semibold text-slate-800 break-all">{selectedFile?.name || 'Existing Receipt'}</span>
+                <div className="flex items-center gap-2 mb-1.5">
+                  <ImageIcon className="w-4 h-4 text-amber-400" />
+                  <span className="font-semibold text-sm text-slate-200 break-all">{selectedFile?.name || 'Existing Receipt'}</span>
                 </div>
                 {selectedFile?.size > 0 && (
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-xs text-slate-400 mb-3">
                     {(selectedFile.size / (1024 * 1024)).toFixed(2)} MB • {selectedFile.type.split('/')[1]?.toUpperCase()}
                   </p>
                 )}
-                <div className="flex items-center gap-2 text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-md w-fit mt-auto">
-                  <CheckCircle2 className="w-4 h-4" /> Ready to submit
+                <div className="flex items-center gap-1.5 text-xs font-medium text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-3 py-1.5 rounded-lg w-fit mt-auto shadow-sm">
+                  <CheckCircle2 className="w-3.5 h-3.5" /> Ready to submit
                 </div>
               </div>
               <Button 
                 type="button" 
                 variant="ghost" 
                 size="icon" 
-                className="absolute top-2 right-2 text-slate-400 hover:text-destructive"
+                className="absolute top-2 right-2 text-slate-400 hover:text-red-400 hover:bg-red-950/30 h-8 w-8 rounded-lg"
                 onClick={removeFile}
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </Button>
             </div>
           )}
@@ -214,7 +226,6 @@ export default function PaymentStep({ onNext }) {
   );
 }
 
-// Quick icons not imported from lucide above
 function Trash2(props) {
   return <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
 }

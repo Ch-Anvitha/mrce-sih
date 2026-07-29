@@ -94,10 +94,10 @@ export function RegisterWizard() {
   const getStatusBadge = () => {
     if (!editSession.status) return null;
     const { status, isLocked } = editSession;
-    if (status === 'APPROVED') return <div className="flex items-center gap-2 bg-emerald-100 text-emerald-800 px-4 py-2 rounded-lg font-semibold mb-6"><CheckCircle2 className="w-5 h-5"/> Approved - Read Only</div>;
-    if (status === 'REJECTED') return <div className="flex items-center gap-2 bg-red-100 text-red-800 px-4 py-2 rounded-lg font-semibold mb-6"><XCircle className="w-5 h-5"/> Rejected - Read Only</div>;
-    if (isLocked) return <div className="flex items-center gap-2 bg-amber-100 text-amber-800 px-4 py-2 rounded-lg font-semibold mb-6"><Lock className="w-5 h-5"/> Locked - Read Only</div>;
-    return <div className="flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-lg font-semibold mb-6"><AlertCircle className="w-5 h-5"/> Edit Mode Active</div>;
+    if (status === 'APPROVED') return <div className="flex items-center gap-2 bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 px-4 py-2 rounded-lg font-semibold mb-6 shadow-md"><CheckCircle2 className="w-5 h-5"/> Approved - Read Only</div>;
+    if (status === 'REJECTED') return <div className="flex items-center gap-2 bg-red-950/60 border border-red-500/30 text-red-400 px-4 py-2 rounded-lg font-semibold mb-6 shadow-md"><XCircle className="w-5 h-5"/> Rejected - Read Only</div>;
+    if (isLocked) return <div className="flex items-center gap-2 bg-amber-950/60 border border-amber-500/30 text-amber-400 px-4 py-2 rounded-lg font-semibold mb-6 shadow-md"><Lock className="w-5 h-5"/> Locked - Read Only</div>;
+    return <div className="flex items-center gap-2 bg-blue-950/60 border border-blue-500/30 text-blue-400 px-4 py-2 rounded-lg font-semibold mb-6 shadow-md"><AlertCircle className="w-5 h-5"/> Edit Mode Active</div>;
   };
 
   const backendError = editSession.isEditMode ? (isUpdateError ? updateError : null) : (isCreateError ? createError : null);
@@ -107,11 +107,11 @@ export function RegisterWizard() {
       {getStatusBadge()}
       <RegistrationStepper steps={steps} />
       
-      <div className={`bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8 mt-10 mb-8 min-h-[450px] transition-all relative
+      <div className={`bg-[#0B1120] rounded-xl shadow-2xl border border-slate-800 p-6 md:p-8 mt-10 mb-8 min-h-[450px] transition-all relative text-white [&_h3]:text-amber-400 [&_h2]:text-amber-400 [&_h4]:text-amber-400
         ${editSession.isReadOnly ? 'opacity-90' : ''}`}
       >
         {editSession.isReadOnly && (
-          <div className="absolute inset-0 z-50 rounded-xl" style={{ pointerEvents: 'auto', backgroundColor: 'rgba(255, 255, 255, 0.2)' }} onClick={() => toast.warning('This registration is read-only and cannot be modified.')} />
+          <div className="absolute inset-0 z-50 rounded-xl" style={{ pointerEvents: 'auto', backgroundColor: 'rgba(3, 7, 18, 0.4)' }} onClick={() => toast.warning('This registration is read-only and cannot be modified.')} />
         )}
         
         <div className={editSession.isReadOnly ? 'pointer-events-none' : ''}>
